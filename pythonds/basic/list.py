@@ -1,125 +1,184 @@
+"""
+This is list module
+"""
+
+
 class Node:
+    """
+    This is Node class
+    """
+
     def __init__(self, initdata):
-        self.data = initdata
-        self.next = None
+        self._data = initdata
+        self._next = None
 
-    def getData(self):
-        return self.data
+    def get_data(self):
+        """
+        This is get_data function
+        """
+        return self._data
 
-    def getNext(self):
-        return self.next
+    def get_next(self):
+        """
+        This is get_next function
+        """
+        return self._next
 
-    def setData(self, newdata):
-        self.data = newdata
+    def set_data(self, newdata):
+        """
+        This is set_data function
+        """
+        self._data = newdata
 
-    def setNext(self, newnext):
-        self.next = newnext
+    def set_next(self, newnext):
+        """
+        This is set_next function
+        """
+        self._next = newnext
 
 
 class UnorderedList:
-    def __init__(self):
-        self.head = None
+    """
+    This is UnorderedList class
+    """
 
-    def isEmpty(self):
-        return self.head == None
+    def __init__(self):
+        self._head = None
+
+    def is_empty(self):
+        """
+        This is is_empty function
+        """
+        return self._head is None
 
     def add(self, item):
+        """
+        This is add function
+        """
         temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
+        temp.set_next(self._head)
+        self._head = temp
 
     def size(self):
-        current = self.head
+        """
+        This is size function
+        """
+        current = self._head
         count = 0
-        while current != None:
+        while current is None:
             count = count + 1
-            current = current.getNext()
+            current = current.get_next()
         return count
 
     def search(self, item):
-        current = self.head
+        """
+        This is search function
+        """
+        current = self._head
         found = False
-        while current != None and not found:
-            if current.getData() == item:
+        while current is not None and not found:
+            if current.get_data() == item:
                 found = True
             else:
-                current = current.getNext()
+                current = current.get_next()
         return found
 
     def remove(self, item):
-        current = self.head
+        """
+        This is remove function
+        """
+        current = self._head
         previous = None
         found = False
         while not found:
-            if current.getData() == item:
+            if current.get_data() == item:
                 found = True
             else:
                 previous = current
-                current = current.getNext()
-        if previous = None:
-            self.head = current.getNext()
+                current = current.get_next()
+        if previous is None:
+            self._head = current.get_next()
         else:
-            previous.setNext(current.getNext())
+            previous.set_next(current.get_next())
 
 
 class OrderedList:
+    """
+    This is OrderedList class
+    """
+
     def __init__(self):
-        self.head = None
-        
-    def isEmpty(self):
-        return self.head == None
+        self._head = None
+
+    def is_empty(self):
+        """
+        This is is_empty function
+        """
+        return self._head is None
 
     def add(self, item):
-        current = self.head
+        """
+        This is add function
+        """
+        current = self._head
         previous = None
         stop = False
-        while current != None and not stop:
-            if current.getData() > item:
+        while current is not None and not stop:
+            if current.get_data() > item:
                 stop = True
             else:
                 previous = current
-                current = current.getNext()
+                current = current.get_next()
         temp = Node(item)
-        if previous == None:
-            temp.setNext(self.head)
-            self.head = temp
+        if previous is None:
+            temp.set_next(self._head)
+            self._head = temp
         else:
-            temp.setNext(current)
-            previous.setNext(temp)
+            temp.set_next(current)
+            previous.set_next(temp)
 
     def size(self):
-        current = self.head
+        """
+        This is size function
+        """
+        current = self._head
         count = 0
-        while current != None:
+        while current is not None:
             count = count + 1
-            current = current.getNext()
+            current = current.get_next()
         return count
 
     def search(self, item):
-        current = self.head
+        """
+        This is search function
+        """
+        current = self._head
         stop = False
         found = False
-        while current != None and not found and not stop:
-            if current.getData() == item:
+        while current is not None and not found and not stop:
+            if current.get_data() == item:
                 found = True
             else:
-                if current.getData() > item:
+                if current.get_data() > item:
                     stop = True
                 else:
-                    current = current.getNext()
+                    current = current.get_next()
         return found
 
     def remove(self, item):
-        current = self.head
+        """
+        This is remove function
+        """
+        current = self._head
         previous = None
         found = False
         while not found:
-            if current.getData() == item:
+            if current.get_data() == item:
                 found = True
             else:
                 previous = current
-                current = current.getNext()
-        if previous = None:
-            self.head = current.getNext()
+                current = current.get_next()
+        if previous is None:
+            self._head = current.get_next()
         else:
-            previous.setNext(current.getNext())
+            previous.set_next(current.get_next())

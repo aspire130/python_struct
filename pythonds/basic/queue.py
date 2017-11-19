@@ -1,17 +1,36 @@
-class Queue:
-    def __init__(self):
-        self.items = []
+"""
+This is queue module
+"""
 
-    def isEmpty(self):
-        return self.items == []
+
+class Queue:
+    """
+    This is Queue class
+    """
+
+    def __init__(self):
+        self._items = []
+
+    def is_empty(self):
+        """
+        This is is_empty function
+        """
+        return self._items == []
 
     def enqueue(self, item):
-        self.items.insert(0, item)
+        """
+        This is enqueue function
+        """
+        self._items.insert(0, item)
 
     def dequeue(self):
-        return self.items.pop()
+        """
+        This is dequeue function
+        """
+        return self._items.pop()
 
     def size(self):
-        return len(self.items)
-
-    
+        """
+        This is size function
+        """
+        return len(self._items)
